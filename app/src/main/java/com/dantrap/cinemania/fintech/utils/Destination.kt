@@ -1,4 +1,4 @@
-package com.dantrap.cinemania.fintech.navigation.destinations
+package com.dantrap.cinemania.fintech.utils
 
 internal sealed class Destination(protected val route: String, vararg params: String) {
 
@@ -18,8 +18,14 @@ internal sealed class Destination(protected val route: String, vararg params: St
         }.toString()
     }
 
-    data object AppGraph : Destination("stubGraph") {
-        data object Home : Destination("home")
+    data object AppGraph : Destination("app_route") {
+
+        data object Home : Destination("home_route")
+
+        data object Favorite : Destination("favorite_route")
+
+        data object Search : Destination("search_route")
+
         data object SettingsGraph : Destination("settingsGraph") {
             data object Settings : Destination("settings")
             data object Language : Destination("language")
