@@ -19,11 +19,12 @@ fun NavGraphBuilder.bottomBarGraph(outerNavController: NavController) {
         val bottomBarNavController = rememberNavController()
         Scaffold(
             bottomBar = { CinemaniaBottomBar(navController = bottomBarNavController) }
-        ) { paddingValues ->
+        ) { padding ->
+            padding.calculateBottomPadding()
             CustomNavHost(
+                modifier = Modifier.padding(bottom = padding.calculateBottomPadding()),
                 navController = bottomBarNavController,
                 startDestination = Destination.AppGraph.Home,
-                modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding())
             ) {
                 homeDestination(outerNavController)
             }
