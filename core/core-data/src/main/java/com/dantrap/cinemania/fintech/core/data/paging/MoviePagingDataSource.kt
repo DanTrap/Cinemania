@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
-class MoviePagingDataSource(
+internal class MoviePagingDataSource(
     private val movieService: MovieService,
     private val dispatcherIo: CoroutineDispatcher,
 ) : PagingSource<Int, MovieDto>() {
