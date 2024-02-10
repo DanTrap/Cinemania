@@ -16,4 +16,6 @@ dependencies {
     implementation(libs.koin.android)
 
     implementation(libs.datastore.preferences)
+
+    implementation(libs.paging.common)
 }
