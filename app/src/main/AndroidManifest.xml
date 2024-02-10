@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.dantrap.cinemania.fintech.App"
+        android:name="com.dantrap.cinemania.fintech.CinemaniaApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +20,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.dantrap.cinemania.fintech.MainActivity"
+            android:name="com.dantrap.cinemania.fintech.CinemaniaActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
