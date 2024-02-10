@@ -24,4 +24,7 @@
     <string name="english">English</string>
     <string name="favorite">Favorites</string>
     <string name="search">Search</string>
+    <string name="genre_year">%1$s (%2$s)</string>
+    <string name="popular">Popular</string>
+    <string name="connection_lost">Connection lost</string>
 </resources>
