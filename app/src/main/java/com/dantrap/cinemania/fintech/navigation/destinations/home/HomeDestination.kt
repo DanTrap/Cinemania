@@ -18,10 +18,14 @@ fun NavGraphBuilder.homeDestination(navController: NavController) {
 
         HomeScreen(state = state, onEvent = viewModel::onEvent)
 
-        viewModel.collectSideEffect {
-            when (it) {
+        viewModel.collectSideEffect { sideEffect ->
+            when (sideEffect) {
                 HomeSideEffect.NavigateToSettings -> navController.navigate(
                     Destination.AppGraph.SettingsGraph()
+                )
+
+                is HomeSideEffect.NavigateToMovie -> navController.navigate(
+                    Destination.AppGraph.Movie(sideEffect.id)
                 )
             }
         }
