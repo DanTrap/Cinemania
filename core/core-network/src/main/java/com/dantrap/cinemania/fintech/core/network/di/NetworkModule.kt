@@ -36,5 +36,4 @@ object NetworkModule {
         .client(okHttpClient)
         .build()
         .create(MovieService::class.java)
-
 }
