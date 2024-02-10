@@ -1,39 +1,45 @@
 package com.dantrap.cinemania.fintech.feature.home.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.dantrap.cinemania.fintech.core.domain.repository.LanguageRepository
+import androidx.paging.cachedIn
+import com.dantrap.cinemania.fintech.core.domain.usecase.GetMoviesUseCase
 import com.dantrap.cinemania.fintech.core.mvi.BaseViewModel
 import com.dantrap.cinemania.fintech.feature.home.presentation.states.HomeEvent
 import com.dantrap.cinemania.fintech.feature.home.presentation.states.HomeSideEffect
 import com.dantrap.cinemania.fintech.feature.home.presentation.states.HomeState
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 
 class HomeViewModel(
-    private val languageRepository: LanguageRepository,
+    private val getMoviesUseCase: GetMoviesUseCase,
 ) : BaseViewModel<HomeState, HomeSideEffect, HomeEvent>(
     initialState = HomeState()
 ) {
 
     init {
-        onEvent(HomeEvent.ObserveLanguage)
+        onEvent(HomeEvent.LoadMovies)
     }
 
     override fun onEvent(event: HomeEvent) {
         when (event) {
-            HomeEvent.ObserveLanguage -> observeCurrentLanguage()
+            HomeEvent.LoadMovies -> loadMovies()
             HomeEvent.OnSettingsClick -> navigateToSettings()
+            is HomeEvent.OnMovieClick -> navigateToMovie(event.id)
+            is HomeEvent.OnMovieLongClick -> addMovieToFavorite(event.id)
         }
     }
 
-    private fun observeCurrentLanguage() {
+    private fun addMovieToFavorite(id: Int) {}
+
+    private fun navigateToMovie(id: Int) {
+        intent { postSideEffect(HomeSideEffect.NavigateToMovie(id)) }
+    }
+
+    private fun loadMovies() {
         intent {
-            languageRepository.language().onEach {
-                reduce { state.copy(isLoading = false) }
-            }.launchIn(viewModelScope)
+            val movies = getMoviesUseCase().cachedIn(viewModelScope)
+            reduce { state.copy(movies = movies, isLoading = false) }
         }
     }
 
