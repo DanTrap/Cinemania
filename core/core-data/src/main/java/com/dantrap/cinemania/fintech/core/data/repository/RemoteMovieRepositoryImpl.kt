@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.dantrap.cinemania.fintech.core.data.mapper.toDomain
 import com.dantrap.cinemania.fintech.core.data.paging.MoviePagingDataSource
+import com.dantrap.cinemania.fintech.core.data.paging.SearchMoviePagingDataSource
 import com.dantrap.cinemania.fintech.core.domain.model.Movie
 import com.dantrap.cinemania.fintech.core.domain.repository.MovieRepository
 import com.dantrap.cinemania.fintech.core.network.api.service.MovieService
@@ -28,6 +29,21 @@ internal class RemoteMovieRepositoryImpl(
                 enablePlaceholders = false
             ),
             pagingSourceFactory = { MoviePagingDataSource(movieService, dispatcherIo) }
+        ).flow.map {
+            it.map(MovieDto::toDomain)
+        }.flowOn(dispatcherIo)
+    }
+
+    override suspend fun moviesByKeyword(keyword: String): Flow<PagingData<Movie>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                prefetchDistance = 4,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = {
+                SearchMoviePagingDataSource(keyword, movieService, dispatcherIo)
+            }
         ).flow.map {
             it.map(MovieDto::toDomain)
         }.flowOn(dispatcherIo)
