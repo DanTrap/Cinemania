@@ -24,7 +24,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.dantrap.cinemania.fintech.core.ui.R
-import com.dantrap.cinemania.fintech.core.ui.theme.LightPrimaryColor
 import com.dantrap.cinemania.fintech.utils.Destination
 
 @Composable
@@ -53,8 +52,8 @@ fun CinemaniaBottomBar(navController: NavHostController, modifier: Modifier = Mo
                     }
                 },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = LightPrimaryColor,
-                    selectedTextColor = LightPrimaryColor,
+                    selectedIconColor = MaterialTheme.colorScheme.primary,
+                    selectedTextColor = MaterialTheme.colorScheme.primary,
                     unselectedIconColor = MaterialTheme.colorScheme.onPrimary,
                     unselectedTextColor = MaterialTheme.colorScheme.onPrimary,
                     indicatorColor = MaterialTheme.colorScheme.surface
