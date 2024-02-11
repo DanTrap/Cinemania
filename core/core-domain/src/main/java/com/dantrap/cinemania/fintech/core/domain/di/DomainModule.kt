@@ -7,6 +7,7 @@ import com.dantrap.cinemania.fintech.core.domain.usecase.GetMovieDetailsUseCase
 import com.dantrap.cinemania.fintech.core.domain.usecase.GetMoviesUseCase
 import com.dantrap.cinemania.fintech.core.domain.usecase.RateUsUseCase
 import com.dantrap.cinemania.fintech.core.domain.usecase.RemoveMovieFromFavoriteUseCase
+import com.dantrap.cinemania.fintech.core.domain.usecase.SearchMoviesByKeywordUseCase
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -27,5 +28,7 @@ object DomainModule {
         singleOf(::AddMovieToFavoriteUseCase)
 
         singleOf(::GetFavoriteMovieUseCase)
+
+        singleOf(::SearchMoviesByKeywordUseCase)
     }
 }
