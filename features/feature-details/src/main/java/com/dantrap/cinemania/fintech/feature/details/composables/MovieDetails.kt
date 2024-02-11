@@ -1,6 +1,7 @@
 package com.dantrap.cinemania.fintech.feature.details.composables
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
@@ -22,7 +23,7 @@ internal fun MovieDetails(movieDetails: MovieDetails) {
     Surface {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
                 text = movieDetails.name,
                 style = MaterialTheme.typography.headlineLarge.copy(
                     fontWeight = FontWeight.W800,
@@ -38,7 +39,7 @@ internal fun MovieDetails(movieDetails: MovieDetails) {
                 )
             }
             Text(
-                modifier = Modifier.padding(horizontal = 48.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 48.dp),
                 text = stringResource(
                     R.string.year_genres,
                     movieDetails.year,
@@ -50,7 +51,7 @@ internal fun MovieDetails(movieDetails: MovieDetails) {
                 )
             )
             Text(
-                modifier = Modifier.padding(horizontal = 48.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 48.dp),
                 text = movieDetails.countries.joinToString(),
                 style = MaterialTheme.typography.labelLarge.copy(
                     fontWeight = FontWeight.W400,
@@ -59,7 +60,7 @@ internal fun MovieDetails(movieDetails: MovieDetails) {
             )
             if (movieDetails.filmLength != 0) {
                 Text(
-                    modifier = Modifier.padding(horizontal = 16.dp),
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                     text = movieDetails.filmLength.toHoursMinsString(),
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontWeight = FontWeight.W400,
@@ -68,9 +69,10 @@ internal fun MovieDetails(movieDetails: MovieDetails) {
                 )
             }
             Text(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
                 text = movieDetails.description,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center
             )
         }
     }
