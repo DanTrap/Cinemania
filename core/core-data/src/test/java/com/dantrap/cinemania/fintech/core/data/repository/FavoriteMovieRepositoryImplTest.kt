@@ -64,14 +64,14 @@ class FavoriteMovieRepositoryImplTest {
 
     @Test
     fun `delete function should delete movie and movie details`() {
+        val movieId = 1
+        coEvery { movieDao.deleteMovieAndDetails(movieId) } returns Unit
+
         runBlocking {
-            val movieId = 1
-            coEvery { movieDao.deleteMovieAndDetails(movieId) } returns Unit
-
             favoriteMovieRepository.delete(movieId)
-
-            coVerify { movieDao.deleteMovieAndDetails(movieId) }
         }
+
+        coVerify { movieDao.deleteMovieAndDetails(movieId) }
     }
 
     private fun mockMovie() = Movie(
