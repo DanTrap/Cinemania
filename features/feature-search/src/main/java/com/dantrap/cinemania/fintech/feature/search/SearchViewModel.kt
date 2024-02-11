@@ -35,7 +35,12 @@ class SearchViewModel(
             is SearchEvent.OnMovieLongClick -> onLongClick(event.movie)
             is SearchEvent.OnSearch -> searchMovie(event.text)
             is SearchEvent.OnUserInput -> updateQuery(event.text)
+            SearchEvent.OnClearClick -> clearQuery()
         }
+    }
+
+    private fun clearQuery() {
+        intent { reduce { state.copy(query = "") } }
     }
 
     private fun onLongClick(movie: Movie) {

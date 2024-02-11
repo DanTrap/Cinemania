@@ -9,4 +9,5 @@ sealed class SearchEvent {
     data class OnMovieLongClick(val movie: Movie) : SearchEvent()
     data class OnUserInput(val text: String) : SearchEvent()
     data class OnSearch(val text: String) : SearchEvent()
+    data object OnClearClick : SearchEvent()
 }

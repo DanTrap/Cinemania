@@ -2,7 +2,11 @@ package com.dantrap.cinemania.fintech.feature.search.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -38,11 +42,20 @@ internal fun SearchTopBar(
                 },
                 active = state.isSearchActive,
                 onActiveChange = {},
-                placeholder = { Text(text = stringResource(R.string.search_movie)) },
+                placeholder = { Text(text = stringResource(R.string.search_movie_hint)) },
+                trailingIcon = {
+                    if (state.query.isNotEmpty()) {
+                        IconButton(onClick = { onEvent(SearchEvent.OnClearClick) }) {
+                            Icon(
+                                imageVector = Icons.Rounded.Close,
+                                contentDescription = null
+                            )
+                        }
+                    }
+                },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(end = 16.dp)
-                    .padding(bottom = 16.dp)
+                    .padding(end = 16.dp, bottom = 16.dp, top = 16.dp)
             ) {}
         }
     )

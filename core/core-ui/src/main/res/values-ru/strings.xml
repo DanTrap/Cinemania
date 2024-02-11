@@ -23,6 +23,6 @@
     <string name="hours_mins">%1$s ч %2$s мин</string>
     <string name="hours">%1$s ч</string>
     <string name="empty_favorites_database">Вы еще ничего не добавили в избранное</string>
-    <string name="search_movie">Найти фильмы</string>
+    <string name="search_movie_hint">Фильмы, сериалы</string>
     <string name="nothing_found">Ничего не нашлось\nИзмените поисковый запрос</string>
 </resources>
