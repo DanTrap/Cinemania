@@ -25,7 +25,7 @@ class PrivacyViewModel : BaseViewModel<PrivacyState, PrivacySideEffect, PrivacyE
     }
 
     private fun loadPrivacy() {
-        intent { reduce { state.copy(url = SettingsConstants.privacy) } }
+        intent { reduce { state.copy(url = SettingsConstants.PRIVACY_POLICY_URL) } }
     }
 
     private fun navigateBack() {
