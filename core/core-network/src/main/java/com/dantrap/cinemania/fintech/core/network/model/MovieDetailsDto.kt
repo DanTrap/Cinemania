@@ -8,9 +8,9 @@ data class MovieDetailsDto(
     @SerializedName("countries")
     val countries: List<CountryDto>,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("filmLength")
-    val filmLength: Int,
+    val filmLength: Int?,
     @SerializedName("genres")
     val genres: List<GenreDto>,
     @SerializedName("kinopoiskId")

@@ -13,8 +13,8 @@ internal fun MovieDetailsDto.toDomain(): MovieDetails = MovieDetails(
     ratingKinopoisk = ratingKinopoisk ?: 0.0,
     year = year ?: 0,
     countries = countries.map { it.country },
-    description = description,
-    filmLength = filmLength,
+    description = description ?: Constants.NOT_AVAILABLE,
+    filmLength = filmLength ?: 0,
     ratingAgeLimits = ratingAgeLimits ?: ""
 )
 
@@ -39,7 +39,7 @@ internal fun MovieDetailsDto.toEntity(): MovieDetailsEntity = MovieDetailsEntity
     ratingKinopoisk = ratingKinopoisk ?: 0.0,
     year = year ?: 0,
     countries = countries.map { it.country },
-    description = description,
-    filmLength = filmLength,
+    description = description ?: Constants.NOT_AVAILABLE,
+    filmLength = filmLength ?: 0,
     ratingAgeLimits = ratingAgeLimits ?: ""
 )
