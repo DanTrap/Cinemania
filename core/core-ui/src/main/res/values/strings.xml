@@ -27,4 +27,9 @@
     <string name="genre_year">%1$s (%2$s)</string>
     <string name="popular">Popular</string>
     <string name="connection_lost">Connection lost</string>
+    <string name="year_genres">%1$s, %2$s</string>
+    <string name="mins">%1$s mins</string>
+    <string name="hours_mins">%1$s hours %2$s mins</string>
+    <string name="hours">%1$s hours</string>
+    <string name="empty_favorites_database">You haven\'t added anything to your favorites yet</string>
 </resources>
