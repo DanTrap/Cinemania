@@ -19,4 +19,7 @@ dependencies {
     implementation(libs.datastore.preferences)
 
     implementation(libs.paging.common)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
 }
