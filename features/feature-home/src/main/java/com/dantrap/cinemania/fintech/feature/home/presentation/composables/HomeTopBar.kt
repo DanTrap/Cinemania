@@ -22,7 +22,7 @@ import com.dantrap.cinemania.fintech.feature.home.presentation.states.HomeEvent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeTopBar(
+internal fun HomeTopBar(
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
     onEvent: (HomeEvent) -> Unit,

@@ -13,11 +13,10 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.dantrap.cinemania.fintech.core.ui.theme.LightPrimaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsTopBar(
+internal fun DetailsTopBar(
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
     onNavigateBack: () -> Unit,
@@ -30,14 +29,14 @@ fun DetailsTopBar(
             IconButton(onClick = onNavigateBack) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                    tint = LightPrimaryColor,
+                    tint = MaterialTheme.colorScheme.primary,
                     contentDescription = null
                 )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
-            scrolledContainerColor = MaterialTheme.colorScheme.background
+            scrolledContainerColor = MaterialTheme.colorScheme.background,
         )
     )
 }
