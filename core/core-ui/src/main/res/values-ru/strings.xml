@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="russian">Русский</string>
+    <string name="favorite">Избранное</string>
+    <string name="search">Поиск</string>
+    <string name="terms_of_use">Условия использования</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="contact_us">Связаться с нами</string>
+    <string name="language">Язык</string>
+    <string name="settings">Настройк</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="home">Главная</string>
+    <string name="english">Английский</string>
+    <string name="unexpected_error">Неожиданная ошибка</string>
+    <string name="connection_exception">Соединение потеряно</string>
+    <string name="socket_exception">Сожалеем, но кажется, что для установления соединения требуется больше времени, чем ожидалось</string>
+    <string name="host_exception">В данный момент у нас проблемы с доступом к серверу</string>
+    <string name="ssl_exception">У нас сейчас проблемы с безопасным подключением к серверу</string>
+    <string name="http_internal_server_error">Внутренняя ошибка сервера</string>
+    <string name="popular">Популярное</string>
+    <string name="connection_lost">Соединение потеряно</string>
+    <string name="mins">%1$s мин</string>
+    <string name="hours_mins">%1$s ч %2$s мин</string>
+    <string name="hours">%1$s ч</string>
+    <string name="empty_favorites_database">Вы еще ничего не добавили в избранное</string>
+</resources>

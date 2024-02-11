@@ -62,6 +62,7 @@ fun LanguageItem(
 @Composable
 private fun String.toLanguagePair(): Pair<String, String> {
     return when (this) {
+        "ru" -> stringResource(R.string.ru) to stringResource(R.string.russian)
         else -> stringResource(R.string.en) to stringResource(R.string.english)
     }
 }

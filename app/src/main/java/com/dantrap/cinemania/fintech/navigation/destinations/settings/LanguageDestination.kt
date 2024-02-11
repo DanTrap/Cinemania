@@ -22,6 +22,7 @@ fun NavGraphBuilder.languageDestination(navController: NavController) {
 
         val mapLocales = mapOf(
             R.string.en to "en",
+            R.string.ru to "ru",
         ).mapKeys { stringResource(it.key) }
 
         LaunchedEffect(key1 = true) {

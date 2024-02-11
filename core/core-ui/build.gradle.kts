@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.dantrap.cinemania.fintech.core.ui"
-    defaultConfig.resourceConfigurations += listOf("en")
+    defaultConfig.resourceConfigurations += listOf("en", "ru")
 }
 
 dependencies {
