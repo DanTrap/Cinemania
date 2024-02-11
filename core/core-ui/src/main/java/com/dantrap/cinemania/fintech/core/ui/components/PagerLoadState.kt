@@ -17,10 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
+import com.dantrap.cinemania.fintech.core.ui.R
 
 @Composable
 fun RefreshState(
@@ -59,7 +61,12 @@ fun RefreshState(
             }
         }
 
-        is LoadState.NotLoading -> Unit
+        is LoadState.NotLoading -> if (isListEmpty) Text(
+            modifier = modifier,
+            text = stringResource(R.string.nothing_found),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.W700)
+        )
     }
 }
 
