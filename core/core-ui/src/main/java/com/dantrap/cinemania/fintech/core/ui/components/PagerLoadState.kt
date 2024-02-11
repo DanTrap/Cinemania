@@ -61,12 +61,14 @@ fun RefreshState(
             }
         }
 
-        is LoadState.NotLoading -> if (isListEmpty) Text(
-            modifier = modifier,
-            text = stringResource(R.string.nothing_found),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.W700)
-        )
+        is LoadState.NotLoading -> if (isListEmpty) {
+            Text(
+                modifier = modifier,
+                text = stringResource(R.string.nothing_found),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.W700)
+            )
+        }
     }
 }
 
