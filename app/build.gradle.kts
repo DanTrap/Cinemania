@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":features:feature-home"))
     implementation(project(":features:feature-settings"))
     implementation(project(":features:feature-details"))
+    implementation(project(":features:feature-favorite"))
 
     implementation(libs.activity.compose)
 
