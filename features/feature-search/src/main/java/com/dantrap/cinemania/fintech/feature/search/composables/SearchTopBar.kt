@@ -19,9 +19,9 @@ import com.dantrap.cinemania.fintech.feature.search.state.SearchState
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SearchTopBar(
+    state: SearchState,
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
-    state: SearchState,
     onEvent: (SearchEvent) -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
