@@ -23,11 +23,15 @@ internal class SearchMoviePagingDataSource(
                 LoadResult.Page(
                     data = response.movies.filter { it.nameRu != null || it.nameOriginal != null },
                     prevKey = null,
-                    nextKey = if (response.movies.isEmpty()
-                        || pageIndex == response.pagesCount
-                        || pageIndex == 20
-                    ) null
-                    else pageIndex + 1
+                    nextKey = if (
+                        response.movies.isEmpty() ||
+                        pageIndex == 20 ||
+                        pageIndex == response.pagesCount
+                    ) {
+                        null
+                    } else {
+                        pageIndex + 1
+                    }
                 )
             } catch (e: Throwable) {
                 e.printStackTrace()
