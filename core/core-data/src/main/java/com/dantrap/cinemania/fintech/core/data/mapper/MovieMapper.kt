@@ -6,12 +6,13 @@ import com.dantrap.cinemania.fintech.core.domain.model.Movie
 import com.dantrap.cinemania.fintech.core.network.model.MovieDto
 
 internal fun MovieDto.toDomain(): Movie = Movie(
-    kinopoiskId = kinopoiskId,
-    genre = genres.first().genre,
+    kinopoiskId = idOldApi ?: kinopoiskId,
+    genre = if (genres.isNotEmpty()) genres.first().genre else Constants.NOT_AVAILABLE,
     name = nameRu ?: nameOriginal ?: Constants.NOT_AVAILABLE,
     posterUrl = posterUrl ?: Constants.STUB_POSTER,
     posterUrlPreview = posterUrlPreview ?: Constants.STUB_POSTER,
-    ratingKinopoisk = ratingKinopoisk ?: 0.0,
+    ratingKinopoisk = if (ratingOldApi == "null") ratingKinopoisk
+        ?: 0.0 else ratingOldApi?.toDouble() ?: ratingKinopoisk ?: 0.0,
     year = year ?: 0
 )
 
