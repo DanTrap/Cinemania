@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dantrap.cinemania.fintech.composables.CinemaniaBottomBar
 import com.dantrap.cinemania.fintech.navigation.destinations.favorite.favoriteDestination
 import com.dantrap.cinemania.fintech.navigation.destinations.home.homeDestination
+import com.dantrap.cinemania.fintech.navigation.destinations.search.searchDestination
 import com.dantrap.cinemania.fintech.utils.CustomNavHost
 import com.dantrap.cinemania.fintech.utils.Destination
 
@@ -29,6 +30,7 @@ fun NavGraphBuilder.bottomBarGraph(outerNavController: NavController) {
             ) {
                 homeDestination(outerNavController)
                 favoriteDestination(outerNavController)
+                searchDestination(outerNavController)
             }
         }
     }

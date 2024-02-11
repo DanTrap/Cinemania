@@ -10,6 +10,7 @@ import com.dantrap.cinemania.fintech.di.AppModule
 import com.dantrap.cinemania.fintech.feature.details.di.DetailsModule
 import com.dantrap.cinemania.fintech.feature.favorite.di.FavoriteModule
 import com.dantrap.cinemania.fintech.feature.home.di.HomeModule
+import com.dantrap.cinemania.fintech.feature.search.di.SearchModule
 import com.dantrap.cinemania.fintech.feature.settings.di.SettingsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -32,7 +33,8 @@ class CinemaniaApplication : Application() {
                 SettingsModule.module,
                 DetailsModule.module,
                 FavoriteModule.module,
-                DatabaseModule.module
+                DatabaseModule.module,
+                SearchModule.module
             )
         }
     }
