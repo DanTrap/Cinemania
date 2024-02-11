@@ -71,7 +71,7 @@ fun AppendState(
     onRetry: () -> Unit,
 ) {
     when (append) {
-        is LoadState.Loading -> CircularProgressIndicator(modifier = modifier)
+        is LoadState.Loading -> if (!isListEmpty) CircularProgressIndicator(modifier = modifier)
 
         is LoadState.Error -> Icon(
             imageVector = Icons.Rounded.Refresh,
@@ -83,6 +83,6 @@ fun AppendState(
             contentDescription = null
         )
 
-        is LoadState.NotLoading -> if (!isListEmpty) CircularProgressIndicator(modifier = modifier)
+        is LoadState.NotLoading -> Unit
     }
 }
