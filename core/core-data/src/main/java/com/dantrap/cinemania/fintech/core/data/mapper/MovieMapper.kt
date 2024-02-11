@@ -11,12 +11,8 @@ internal fun MovieDto.toDomain(): Movie = Movie(
     name = nameRu ?: nameOriginal ?: Constants.NOT_AVAILABLE,
     posterUrl = posterUrl ?: Constants.STUB_POSTER,
     posterUrlPreview = posterUrlPreview ?: Constants.STUB_POSTER,
-    ratingKinopoisk = if (ratingOldApi == "null") {
-        ratingKinopoisk ?: 0.0
-    } else {
-        ratingOldApi?.toDouble() ?: ratingKinopoisk ?: 0.0
-    },
-    year = year ?: 0
+    ratingKinopoisk = ratingOldApi?.toDouble() ?: (ratingKinopoisk ?: 0.0),
+    year = if (year == null) 0 else year.toString().take(4).toInt()
 )
 
 internal fun Movie.toEntity(): MovieEntity = MovieEntity(

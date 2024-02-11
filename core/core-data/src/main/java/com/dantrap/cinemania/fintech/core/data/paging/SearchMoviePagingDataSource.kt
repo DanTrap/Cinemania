@@ -21,7 +21,10 @@ internal class SearchMoviePagingDataSource(
                 val pageIndex = params.key ?: 1
                 val response = movieService.getMoviesByKeyword(keyword = keyword, page = pageIndex)
                 LoadResult.Page(
-                    data = response.movies.filter { it.nameRu != null || it.nameOriginal != null },
+                    data = response.movies.filter {
+                        (it.nameRu != null || it.nameOriginal != null) &&
+                            it.ratingOldApi != "null" && it.year.toString() != "null"
+                    },
                     prevKey = null,
                     nextKey = if (
                         response.movies.isEmpty() ||
