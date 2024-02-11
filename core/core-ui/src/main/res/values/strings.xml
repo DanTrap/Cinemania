@@ -29,4 +29,5 @@
     <string name="terms_of_use">Terms of use</string>
     <string name="rate_us">Rate us</string>
     <string name="empty_favorites_database">You haven\'t added anything to your favorites yet</string>
+    <string name="search_movie">Search movie</string>
 </resources>
