@@ -16,8 +16,6 @@ dependencies {
 
     debugImplementation(libs.compose.ui.tooling)
 
-    implementation(libs.lottie.compose)
-
     implementation(libs.paging.common)
 
     implementation(libs.coil.compose)
