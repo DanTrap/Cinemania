@@ -34,7 +34,10 @@ fun PrivacyScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = padding.calculateTopPadding())
+                .padding(
+                    top = padding.calculateTopPadding(),
+                    bottom = padding.calculateBottomPadding()
+                )
         ) {
             when (state.url.isEmpty()) {
                 true -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))

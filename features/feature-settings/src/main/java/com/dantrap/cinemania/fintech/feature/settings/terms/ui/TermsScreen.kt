@@ -30,7 +30,10 @@ fun TermsScreen(state: TermsState, modifier: Modifier = Modifier, onEvent: (Term
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = padding.calculateTopPadding())
+                .padding(
+                    top = padding.calculateTopPadding(),
+                    bottom = padding.calculateBottomPadding()
+                )
         ) {
             when (state.url.isEmpty()) {
                 true -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
