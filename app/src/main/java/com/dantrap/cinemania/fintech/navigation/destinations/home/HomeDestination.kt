@@ -25,7 +25,7 @@ fun NavGraphBuilder.homeDestination(navController: NavController) {
                 )
 
                 is HomeSideEffect.NavigateToMovie -> navController.navigate(
-                    Destination.AppGraph.Movie(sideEffect.id)
+                    Destination.AppGraph.Details(sideEffect.id)
                 )
             }
         }

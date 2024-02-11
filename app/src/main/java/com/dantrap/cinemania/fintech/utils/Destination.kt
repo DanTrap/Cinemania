@@ -26,7 +26,7 @@ internal sealed class Destination(protected val route: String, vararg params: St
 
         data object Search : Destination("search_route")
 
-        data object Movie : Destination("movie_route", "id") {
+        data object Details : Destination("details_route", "id") {
             operator fun invoke(id: Int) = route.appendParams(listOf(id.toString()))
         }
 
