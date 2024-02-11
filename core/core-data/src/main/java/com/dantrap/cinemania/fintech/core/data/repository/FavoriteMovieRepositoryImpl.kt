@@ -6,6 +6,7 @@ import com.dantrap.cinemania.fintech.core.database.dao.MovieDao
 import com.dantrap.cinemania.fintech.core.database.model.MovieEntity
 import com.dantrap.cinemania.fintech.core.domain.model.Movie
 import com.dantrap.cinemania.fintech.core.domain.repository.FavoriteMovieRepository
+import com.dantrap.cinemania.fintech.core.network.api.service.MovieService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -14,6 +15,7 @@ import kotlinx.coroutines.withContext
 
 internal class FavoriteMovieRepositoryImpl(
     private val movieDao: MovieDao,
+    private val movieService: MovieService,
     private val dispatcherIo: CoroutineDispatcher,
 ) : FavoriteMovieRepository {
 
@@ -23,13 +25,17 @@ internal class FavoriteMovieRepositoryImpl(
 
     override suspend fun save(movie: Movie) {
         withContext(dispatcherIo) {
-            movieDao.insert(movie.toEntity())
+            movieDao.insertMovie(movie.toEntity())
+            try {
+                val movieDetailsDto = movieService.getMovieInfo(movie.kinopoiskId)
+                movieDao.insertMovieDetails(movieDetailsDto.toEntity())
+            } catch (_: Exception) {}
         }
     }
 
     override suspend fun delete(id: Int) {
         withContext(dispatcherIo) {
-            movieDao.deleteFavoriteMovie(id)
+            movieDao.deleteMovieAndDetails(id)
         }
     }
 }
