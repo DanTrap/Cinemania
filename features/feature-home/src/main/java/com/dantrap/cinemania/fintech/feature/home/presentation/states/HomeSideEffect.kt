@@ -5,4 +5,5 @@ import androidx.compose.runtime.Immutable
 @Immutable
 sealed class HomeSideEffect {
     data object NavigateToSettings : HomeSideEffect()
+    data class NavigateToMovie(val id: Int) : HomeSideEffect()
 }

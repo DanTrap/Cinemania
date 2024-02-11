@@ -14,12 +14,12 @@ internal class ContactUsManagerImpl(private val context: Context) : ContactUsMan
             Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse(
                     buildString {
-                        append("mailto:${SettingsConstants.mailTo}")
-                        append("?subject=${Constants.userInquiry}")
+                        append("mailto:${SettingsConstants.MAIL_TO}")
+                        append("?subject=${Constants.USER_INQUIRY}")
                     }
                 )
             },
-            Constants.emailVia
+            Constants.EMAIL_VIA
         ).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(this)

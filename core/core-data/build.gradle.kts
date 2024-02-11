@@ -8,6 +8,7 @@ dependencies {
     implementation(project(":core:core-domain"))
     implementation(project(":core:core-network"))
     implementation(project(":core:core-common"))
+    implementation(project(":core:core-database"))
 
     implementation(libs.appcompat)
 
@@ -16,4 +17,6 @@ dependencies {
     implementation(libs.koin.android)
 
     implementation(libs.datastore.preferences)
+
+    implementation(libs.paging.common)
 }

@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SettingsButton(
+internal fun SettingsButton(
     text: String,
     imageVector: ImageVector,
     modifier: Modifier = Modifier,
@@ -54,7 +54,7 @@ fun SettingsButton(
                 modifier = Modifier
                     .wrapContentSize()
                     .clip(MaterialTheme.shapes.small)
-                    .background(color = MaterialTheme.colorScheme.onSurface)
+                    .background(color = MaterialTheme.colorScheme.background)
                     .padding(8.dp),
                 tint = MaterialTheme.colorScheme.onPrimary,
                 contentDescription = null
@@ -62,12 +62,15 @@ fun SettingsButton(
             Text(
                 text = text,
                 modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.labelLarge.copy(fontSize = 18.sp)
+                style = MaterialTheme.typography.labelLarge.copy(
+                    fontSize = 18.sp,
+                    color = MaterialTheme.colorScheme.background
+                )
             )
             Icon(
                 imageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
                 modifier = Modifier.wrapContentSize(),
-                tint = MaterialTheme.colorScheme.onPrimary,
+                tint = MaterialTheme.colorScheme.background,
                 contentDescription = null
             )
         }

@@ -10,7 +10,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.dantrap.cinemania.fintech.navigation.destinations.Destination
 
 @Composable
 internal fun CustomNavHost(

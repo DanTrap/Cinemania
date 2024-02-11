@@ -21,7 +21,7 @@ import com.dantrap.cinemania.fintech.core.ui.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsTopBar(
+internal fun SettingsTopBar(
     modifier: Modifier = Modifier,
     onNavigateUp: () -> Unit,
 ) {
@@ -46,6 +46,7 @@ fun SettingsTopBar(
             IconButton(onClick = { onNavigateUp() }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                    tint = MaterialTheme.colorScheme.onPrimary,
                     contentDescription = null
                 )
             }

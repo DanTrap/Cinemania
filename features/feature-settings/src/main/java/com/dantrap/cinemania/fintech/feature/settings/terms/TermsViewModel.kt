@@ -25,7 +25,7 @@ class TermsViewModel : BaseViewModel<TermsState, TermsSideEffect, TermsEvent>(
     }
 
     private fun loadPrivacy() {
-        intent { reduce { state.copy(url = SettingsConstants.terms) } }
+        intent { reduce { state.copy(url = SettingsConstants.TERMS_OF_USE_URL) } }
     }
 
     private fun navigateBack() {

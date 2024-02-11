@@ -18,22 +18,28 @@ import com.dantrap.cinemania.fintech.core.ui.R
 import com.dantrap.cinemania.fintech.core.ui.components.MainButton
 
 @Composable
-fun LanguageItem(
+internal fun LanguageItem(
     language: String,
     isCurrentLanguage: Boolean,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     val containerColor = if (isCurrentLanguage) {
         MaterialTheme.colorScheme.primary
     } else {
-        MaterialTheme.colorScheme.secondaryContainer
+        MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+    }
+
+    val contentColor = if (isCurrentLanguage) {
+        MaterialTheme.colorScheme.background
+    } else {
+        MaterialTheme.colorScheme.onPrimary
     }
 
     MainButton(
         modifier = modifier.fillMaxWidth(),
         containerColor = containerColor,
-        contentColor = MaterialTheme.colorScheme.onPrimary,
+        contentColor = contentColor,
         onClick = { onClick() }
     ) {
         Box(modifier = Modifier.wrapContentSize()) {
@@ -62,6 +68,7 @@ fun LanguageItem(
 @Composable
 private fun String.toLanguagePair(): Pair<String, String> {
     return when (this) {
+        "ru" -> stringResource(R.string.ru) to stringResource(R.string.russian)
         else -> stringResource(R.string.en) to stringResource(R.string.english)
     }
 }

@@ -7,13 +7,14 @@ import androidx.compose.material.icons.rounded.Mail
 import androidx.compose.material.icons.rounded.PrivacyTip
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import com.dantrap.cinemania.fintech.core.ui.R
 import com.dantrap.cinemania.fintech.feature.settings.menu.states.SettingsEvent
 
 @Composable
-fun settingsButtons(onEvent: (SettingsEvent) -> Unit): List<SettingsButtonContent> = listOf(
+internal fun settingsButtons(onEvent: (SettingsEvent) -> Unit): List<SettingsButtonContent> = listOf(
     SettingsButtonContent(
         text = stringResource(R.string.privacy_policy),
         imageVector = Icons.Rounded.PrivacyTip,
@@ -41,6 +42,7 @@ fun settingsButtons(onEvent: (SettingsEvent) -> Unit): List<SettingsButtonConten
     )
 )
 
+@Immutable
 data class SettingsButtonContent(
     val text: String,
     val imageVector: ImageVector,

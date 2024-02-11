@@ -19,4 +19,9 @@ dependencies {
     implementation(libs.koin.android)
 
     implementation(libs.orbit.viewmodel)
+
+    implementation(libs.paging.common)
+    implementation(libs.paging.compose)
+
+    implementation(libs.coil.compose)
 }

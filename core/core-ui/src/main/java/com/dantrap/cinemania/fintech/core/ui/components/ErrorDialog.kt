@@ -1,20 +1,23 @@
 package com.dantrap.cinemania.fintech.core.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.Card
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.dantrap.cinemania.fintech.core.common.network.ResponseError
@@ -24,30 +27,24 @@ import com.dantrap.cinemania.fintech.core.ui.R
 fun ErrorDialog(
     error: ResponseError,
     modifier: Modifier = Modifier,
-    onRetryClick: () -> Unit
+    onRetry: () -> Unit,
 ) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressLottieAnimation(
-            modifier = Modifier.size(width = 200.dp, height = 150.dp),
-            rawAnimId = R.raw.lottie_ball_animation
-        )
-        Card {
-            Column(
-                modifier = Modifier.padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                ErrorText(
-                    error = error
-                )
-                IconButton(onClick = onRetryClick) {
-                    Icon(
-                        modifier = Modifier.size(48.dp),
-                        imageVector = Icons.Default.Refresh,
-                        contentDescription = null,
-                    )
-                }
-            }
+    Surface(modifier = modifier) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            ErrorText(error = error)
+            Icon(
+                modifier = Modifier
+                    .size(54.dp)
+                    .clip(CircleShape)
+                    .clickable { onRetry() }
+                    .padding(8.dp),
+                imageVector = Icons.Rounded.Refresh,
+                contentDescription = null,
+            )
         }
     }
 }
@@ -70,6 +67,6 @@ private fun ErrorText(error: ResponseError, modifier: Modifier = Modifier) {
         modifier = modifier,
         text = text,
         textAlign = TextAlign.Center,
-        style = MaterialTheme.typography.titleMedium
+        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.W700)
     )
 }

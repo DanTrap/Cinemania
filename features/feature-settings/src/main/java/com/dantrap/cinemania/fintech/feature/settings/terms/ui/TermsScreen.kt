@@ -5,21 +5,15 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.dantrap.cinemania.fintech.core.ui.R
-import com.dantrap.cinemania.fintech.core.ui.components.ProgressLottieAnimation
 import com.dantrap.cinemania.fintech.feature.settings.terms.states.TermsEvent
 import com.dantrap.cinemania.fintech.feature.settings.terms.states.TermsState
 import com.google.accompanist.web.LoadingState
@@ -36,15 +30,13 @@ fun TermsScreen(state: TermsState, modifier: Modifier = Modifier, onEvent: (Term
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(
+                    top = padding.calculateTopPadding(),
+                    bottom = padding.calculateBottomPadding()
+                )
         ) {
             when (state.url.isEmpty()) {
-                true -> ProgressLottieAnimation(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .size(200.dp),
-                    rawAnimId = R.raw.lottie_ball_animation
-                )
+                true -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
 
                 else -> PrivacyScreenContent(url = state.url)
             }
@@ -57,15 +49,11 @@ private fun PrivacyScreenContent(url: String) {
     val navigator = rememberWebViewNavigator()
     val state = rememberWebViewState(url = url)
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.systemBars)
-    ) {
+    Column(modifier = Modifier.fillMaxSize()) {
         val loadingState = state.loadingState
         if (loadingState is LoadingState.Loading) {
             LinearProgressIndicator(
-                progress = loadingState.progress,
+                progress = { loadingState.progress },
                 modifier = Modifier.fillMaxWidth(),
             )
         }
