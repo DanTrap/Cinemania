@@ -18,9 +18,9 @@ data class MovieDetailsDto(
     @SerializedName("nameOriginal")
     val nameOriginal: String?,
     @SerializedName("nameRu")
-    val nameRu: String,
+    val nameRu: String?,
     @SerializedName("posterUrl")
-    val posterUrl: String,
+    val posterUrl: String?,
     @SerializedName("ratingAgeLimits")
     val ratingAgeLimits: String?,
     @SerializedName("ratingKinopoisk")
@@ -28,5 +28,5 @@ data class MovieDetailsDto(
     @SerializedName("webUrl")
     val webUrl: String,
     @SerializedName("year")
-    val year: Int,
+    val year: Int?,
 )

@@ -68,7 +68,7 @@ fun MovieItem(
                     modifier = Modifier.weight(weight = 1f)
                 )
                 MovieNameYearGenre(
-                    name = movie.nameRu,
+                    name = movie.name,
                     genre = movie.genre,
                     year = movie.year,
                     modifier = Modifier.weight(weight = 3f)

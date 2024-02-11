@@ -12,13 +12,13 @@ data class MovieDto(
     @SerializedName("nameOriginal")
     val nameOriginal: String?,
     @SerializedName("nameRu")
-    val nameRu: String,
+    val nameRu: String?,
     @SerializedName("posterUrl")
-    val posterUrl: String,
+    val posterUrl: String?,
     @SerializedName("posterUrlPreview")
-    val posterUrlPreview: String,
+    val posterUrlPreview: String?,
     @SerializedName("ratingKinopoisk")
     val ratingKinopoisk: Double?,
     @SerializedName("year")
-    val year: Int
+    val year: Int?
 )
