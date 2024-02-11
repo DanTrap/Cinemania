@@ -19,6 +19,7 @@ dependencies {
     implementation(project(":core:core-domain"))
     implementation(project(":features:feature-home"))
     implementation(project(":features:feature-settings"))
+    implementation(project(":features:feature-details"))
 
     implementation(libs.activity.compose)
 
