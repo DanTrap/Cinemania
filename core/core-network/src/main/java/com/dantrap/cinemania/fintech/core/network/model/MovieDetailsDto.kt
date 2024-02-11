@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class MovieInfoDto(
+data class MovieDetailsDto(
     @SerializedName("countries")
     val countries: List<CountryDto>,
     @SerializedName("description")

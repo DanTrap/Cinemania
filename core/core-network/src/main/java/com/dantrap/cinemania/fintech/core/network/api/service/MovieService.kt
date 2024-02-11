@@ -1,6 +1,6 @@
 package com.dantrap.cinemania.fintech.core.network.api.service
 
-import com.dantrap.cinemania.fintech.core.network.model.MovieInfoDto
+import com.dantrap.cinemania.fintech.core.network.model.MovieDetailsDto
 import com.dantrap.cinemania.fintech.core.network.model.MovieResponseDto
 import com.dantrap.cinemania.fintech.core.network.utils.Constants
 import retrofit2.http.GET
@@ -18,5 +18,5 @@ interface MovieService {
     @GET(Constants.Path.MOVIE_INFO)
     suspend fun getMovieInfo(
         @Path(Constants.Fields.ID) id: Int,
-    ): MovieInfoDto
+    ): MovieDetailsDto
 }
