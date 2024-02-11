@@ -16,7 +16,7 @@ fun Throwable.toResponseError(): ResponseError {
 }
 
 @Suppress("MagicNumber")
-fun Int.toResponseError(): ResponseError {
+fun Int.httpErrorToResponseError(): ResponseError {
     return when (this) {
         400 -> ResponseError.BAD_REQUEST
         401 -> ResponseError.UNAUTHORIZED
