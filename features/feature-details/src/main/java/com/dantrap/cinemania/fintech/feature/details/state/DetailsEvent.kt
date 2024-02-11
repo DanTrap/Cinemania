@@ -6,4 +6,5 @@ import androidx.compose.runtime.Immutable
 sealed class DetailsEvent {
     data class LoadMovieDetails(val id: Int) : DetailsEvent()
     data object OnBackArrowClick : DetailsEvent()
+    data object OnRetryClick : DetailsEvent()
 }
