@@ -2,6 +2,7 @@ package com.dantrap.cinemania.fintech.core.network.api.service
 
 import com.dantrap.cinemania.fintech.core.network.model.MovieDetailsDto
 import com.dantrap.cinemania.fintech.core.network.model.MovieResponseDto
+import com.dantrap.cinemania.fintech.core.network.model.SearchMovieResponseDto
 import com.dantrap.cinemania.fintech.core.network.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,4 +20,10 @@ interface MovieService {
     suspend fun getMovieInfo(
         @Path(Constants.Fields.ID) id: Int,
     ): MovieDetailsDto
+
+    @GET(Constants.Path.SEARCH_BY_KEYWORD)
+    suspend fun getMoviesByKeyword(
+        @Query(Constants.Fields.KEYWORD) keyword: String,
+        @Query(Constants.Fields.PAGE) page: Int = Constants.DEFAULT_PAGE,
+    ): SearchMovieResponseDto
 }

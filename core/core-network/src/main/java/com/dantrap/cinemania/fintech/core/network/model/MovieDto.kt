@@ -20,5 +20,9 @@ data class MovieDto(
     @SerializedName("ratingKinopoisk")
     val ratingKinopoisk: Double?,
     @SerializedName("year")
-    val year: Int?
+    val year: Int?,
+    @SerializedName("filmId")
+    val idOldApi: Int?,
+    @SerializedName("rating")
+    val ratingOldApi: String?,
 )
