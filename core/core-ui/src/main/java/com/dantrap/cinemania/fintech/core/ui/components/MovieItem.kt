@@ -73,18 +73,23 @@ fun MovieItem(
                     year = movie.year,
                     modifier = Modifier.weight(weight = 3f)
                 )
-            }
-            MovieFavoriteBadge(
-                isFavorite = movie.isFavorite,
-                modifier = Modifier
-                    .wrapContentWidth()
-                    .fillMaxHeight()
-            )
-            if (movie.ratingKinopoisk != 0.0) {
-                MovieRating(
-                    rating = movie.ratingKinopoisk,
-                    modifier = Modifier.align(Alignment.BottomEnd)
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentWidth(),
+                    verticalArrangement = Arrangement.SpaceBetween
+                ) {
+                    MovieFavoriteBadge(
+                        isFavorite = movie.isFavorite,
+                        modifier = Modifier.align(Alignment.End)
+                    )
+                    if (movie.ratingKinopoisk != 0.0) {
+                        MovieRating(
+                            rating = movie.ratingKinopoisk,
+                            modifier = Modifier.align(Alignment.End)
+                        )
+                    }
+                }
             }
         }
     }
