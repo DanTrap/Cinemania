@@ -66,7 +66,7 @@ private fun HomeScreenContent(moviesFlow: Flow<PagingData<Movie>>, onEvent: (Hom
                     MovieItem(
                         movie = movie,
                         onClick = { onEvent(HomeEvent.OnMovieClick(movie.kinopoiskId)) },
-                        onLongClick = { onEvent(HomeEvent.OnMovieLongClick(movie.kinopoiskId)) }
+                        onLongClick = { onEvent(HomeEvent.OnMovieLongClick(movie)) }
                     )
                 }
             }
