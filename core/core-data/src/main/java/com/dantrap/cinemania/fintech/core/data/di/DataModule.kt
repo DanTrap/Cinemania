@@ -2,11 +2,13 @@ package com.dantrap.cinemania.fintech.core.data.di
 
 import com.dantrap.cinemania.fintech.core.data.repository.AppReviewManagerImpl
 import com.dantrap.cinemania.fintech.core.data.repository.ContactUsManagerImpl
+import com.dantrap.cinemania.fintech.core.data.repository.FavoriteMovieRepositoryImpl
 import com.dantrap.cinemania.fintech.core.data.repository.LanguageRepositoryImpl
 import com.dantrap.cinemania.fintech.core.data.repository.MovieDetailsRepositoryImpl
 import com.dantrap.cinemania.fintech.core.data.repository.RemoteMovieRepositoryImpl
 import com.dantrap.cinemania.fintech.core.domain.repository.AppReviewManager
 import com.dantrap.cinemania.fintech.core.domain.repository.ContactUsManager
+import com.dantrap.cinemania.fintech.core.domain.repository.FavoriteMovieRepository
 import com.dantrap.cinemania.fintech.core.domain.repository.LanguageRepository
 import com.dantrap.cinemania.fintech.core.domain.repository.MovieDetailsRepository
 import com.dantrap.cinemania.fintech.core.domain.repository.MovieRepository
@@ -27,5 +29,7 @@ object DataModule {
         singleOf(::RemoteMovieRepositoryImpl) bind MovieRepository::class
 
         singleOf(::MovieDetailsRepositoryImpl) bind MovieDetailsRepository::class
+
+        singleOf(::FavoriteMovieRepositoryImpl) bind FavoriteMovieRepository::class
     }
 }

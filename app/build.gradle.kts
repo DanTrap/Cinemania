@@ -17,6 +17,7 @@ dependencies {
     implementation(project(":core:core-network"))
     implementation(project(":core:core-mvi"))
     implementation(project(":core:core-domain"))
+    implementation(project(":core:core-database"))
     implementation(project(":features:feature-home"))
     implementation(project(":features:feature-settings"))
     implementation(project(":features:feature-details"))
